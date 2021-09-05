@@ -81,7 +81,36 @@ fs_time = nvvfs.NVVFSDate
 time = fs_time.decode("TIME") # will output dict
 
 # encode time for File System
-fs_time.encode(time) # will output str
+fs_time.encode(time) # will output string
+```
+
+## Extra
+There is some hidden function  
+that are used by main methods  
+NEVER USE THESE METHODS!
+```python
+# execute() to directly execute
+# queries in database
+my_fs.execute('''DROP TABLE files''') # THIS CODE WILL CORRUPT YOUR FILE SYSTEM
+# (will drop table with files IDs and meta)
+
+# raw_delete_dir() to delete
+# one directory
+# used by delete_dir()
+my_fs.raw_delete_dir(1)
+# this method dont check
+# directory type and
+# can corrupt your File System
+
+# get_id() is used to
+# get unique ID for
+# file or directory
+my_fs.get_id()
+
+# get_now_time() is used to
+# get current time in
+# NVVFSDate time format
+my_fs.get_now_time()
 ```
 
 ## Summary
