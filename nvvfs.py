@@ -1,11 +1,10 @@
 from os import mkdir
 import sqlite3
-from sqlite3.dbapi2 import connect
 from time import time_ns
 import datetime
 import os
 
-def create_fs(name:str="filesystem", max_size:int=0):
+def create_fs(name:str="filesystem"):
   with sqlite3.connect(f"{name}.nvvfsd") as con:
     cur = con.cursor()
 
