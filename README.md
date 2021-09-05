@@ -74,7 +74,6 @@ nvvfs.NVVFSDate
 ```
 
 ```python
-# you can do this if you want
 fs_time = nvvfs.NVVFSDate
 
 # decode time
